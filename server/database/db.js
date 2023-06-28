@@ -1,8 +1,14 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
 
 const Connection = () => {
 
-    const MONGODB_URI = "mongodb+srv://user:lucomoro@mern-todo.j1tkbdz.mongodb.net/";
+    const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@mern-todo.j1tkbdz.mongodb.net/`;
 
     mongoose.connect(MONGODB_URI, {useNewUrlParser: true });
 
