@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { AddNewTodo } from '../redux/actions';
+import { addNewTodo } from '../redux/actions';
 
 const TodoForm = () => {
 
@@ -13,7 +13,9 @@ const TodoForm = () => {
     const onFormSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(AddNewTodo());
+        dispatch(addNewTodo(text));
+
+        setText('');
     }
 
     const onInputChange = (e) => {
@@ -26,6 +28,7 @@ const TodoForm = () => {
             placeholder="Enter new todo..."
             className="input_test"
             onChange={onInputChange}
+            value={text}
             />
         </form>
     )

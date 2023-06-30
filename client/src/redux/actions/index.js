@@ -4,7 +4,7 @@ import { ADDNEW_TODO } from './type';
 
 const API_URL = "http://localhost:8000";
 
-export const AddNewTodo = (data) => async(dispatch) => {
+export const addNewTodo = (data) => async(dispatch) => {
     try{
        const res = await axios.post(`${API_URL}/todos`, { data });
 
