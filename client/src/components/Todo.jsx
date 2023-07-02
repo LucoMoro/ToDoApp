@@ -10,6 +10,10 @@ const Todo = ({ todo }) => {
         <li
             className="task"
             onClick={() => dispatch(toggleTodo(todo._id))}
+            style={{
+                textDecoration: todo.done ? 'line-through' : '',
+                color: todo.done ? '#bdc3c7' : '#34495e'
+            }}
         >
             <span>{todo.data}</span>
 
