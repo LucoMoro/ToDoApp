@@ -20,6 +20,8 @@ const Todo = ({ todo }) => {
         dispatch(updateTodo(todo._id, text))
     }
 
+    const goal = todo.data.split(':');
+
     return (
         <li
             className="task"
@@ -29,7 +31,7 @@ const Todo = ({ todo }) => {
                 color: todo.done ? '#bdc3c7' : '#34495e'
             }}
         >
-            <span style ={{ display: editing ? 'none' : '' }}>{todo.data}</span>
+            <span style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
 
             <form
                 style= {{ display: editing ? 'inline' : 'none' }}
