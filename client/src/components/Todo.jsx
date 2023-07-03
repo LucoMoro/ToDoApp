@@ -31,7 +31,7 @@ const Todo = ({ todo }) => {
                 color: todo.done ? '#bdc3c7' : '#34495e'
             }}
         >   
-        <span id="test" style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
+        <span style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
 
             <form
                 style= {{ display: editing ? 'inline' : 'none' }}
