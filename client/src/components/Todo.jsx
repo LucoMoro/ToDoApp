@@ -30,8 +30,8 @@ const Todo = ({ todo }) => {
                 textDecoration: todo.done ? 'line-through' : '',
                 color: todo.done ? '#bdc3c7' : '#34495e'
             }}
-        >
-            <span style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
+        >   
+        <span id="test" style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
 
             <form
                 style= {{ display: editing ? 'inline' : 'none' }}
@@ -44,7 +44,12 @@ const Todo = ({ todo }) => {
                     onChange={(e) => setText(e.target.value)} 
                 />
             </form>
-
+            <span className="icon" 
+                style={{color: todo.done ? '#008F39' : '#FFFFFF'}}
+            >
+                   <i class="fas fa-check-circle"></i>
+            </span>
+            
             <span className="icon" onClick = {() => dispatch(deleteTodo(todo._id))}>
                 <i className="fas fa-trash"/>
             </span>
