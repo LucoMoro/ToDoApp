@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import { toggleTodo, updateTodo } from "../redux/actions";
 import { deleteTodo } from "../redux/actions";
@@ -9,6 +9,7 @@ const Todo = ({ todo }) => {
 
     const [editing, setEditing] = useState(false);
     const [text, setText] = useState(todo.data);
+    const textLower =  useMemo(() => todo.data.toLowerCase(), [todo.data]);
 
     const dispatch = useDispatch();
 
@@ -31,7 +32,20 @@ const Todo = ({ todo }) => {
                 color: todo.done ? '#bdc3c7' : '#34495e'
             }}
         >   
-        <span style ={{ display: editing ? 'none' : '' }}>{goal[0]} <br/> {goal[1]}</span>
+        <span style ={{ display: editing ? 'none' : '' }}>
+            {(() => {
+                    if (textLower.includes('download')) {
+                        return <i class="fas fa-file-download"/>;
+                    } else if (textLower.includes('code') || textLower.includes('method') || textLower.includes('class')) {
+                        return <i class="fas fa-code"/>;
+                    } else if (textLower.includes('branch') || textLower.includes('github')) {
+                        return <i class="fas fa-code-branch"/>;
+                    } else {
+                        return <i/>;
+                    }
+                })()}
+            <span></span> {goal[0]} <br/> {goal[1]}
+        </span>
 
             <form
                 style= {{ display: editing ? 'inline' : 'none' }}
@@ -41,7 +55,9 @@ const Todo = ({ todo }) => {
                     type = "text" 
                     value={text}
                     className = "edit-todo"
-                    onChange={(e) => setText(e.target.value)} 
+                    onChange={(e) => {
+                        setText(e.target.value);
+                    }} 
                 />
             </form>
             <span className="icon" 
