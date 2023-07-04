@@ -25,7 +25,7 @@ const Todo = ({ todo }) => {
             dispatch(updateTodo(todo._id, text));
             if (todo.done) {
                 toggleTodoDone();
-            }            
+            }
         }
     }
 
@@ -39,24 +39,9 @@ const Todo = ({ todo }) => {
             }}
         >
             <span style={{ display: editing ? 'none' : '' }}>
-                {(() => {
-                    if (todoTextLower.includes('download')) {
-                        return <i class="fas fa-file-download" />;
-                    } else if (
-                        todoTextLower.includes('code')
-                        || todoTextLower.includes('method')
-                        || todoTextLower.includes('class')
-                    ) {
-                        return <i class="fas fa-code" />;
-                    } else if (
-                        todoTextLower.includes('branch')
-                        || todoTextLower.includes('github')
-                    ) {
-                        return <i class="fas fa-code-branch" />;
-                    } else {
-                        return <i />;
-                    }
-                })()}
+                <TodoIcon
+                todoTextLower={todoTextLower}
+                />
                 <span></span> {goal[0]} <br /> {goal[1]}
             </span>
 
@@ -87,6 +72,26 @@ const Todo = ({ todo }) => {
             </span>
         </li>
     )
+}
+
+const TodoIcon = ({ todoTextLower }) => {
+    if (todoTextLower.includes('download')) {
+        
+        return <i class="fas fa-file-download" />;
+    } else if (
+        todoTextLower.includes('code')
+        || todoTextLower.includes('method')
+        || todoTextLower.includes('class')
+    ) {
+        return <i class="fas fa-code" />;
+    } else if (
+        todoTextLower.includes('branch')
+        || todoTextLower.includes('github')
+    ) {
+        return <i class="fas fa-code-branch" />;
+    } else {
+        return <i />;
+    }
 }
 
 export default Todo;
