@@ -1,34 +1,31 @@
 import { useState } from 'react';
-
 import { useDispatch } from 'react-redux';
-
 import { addNewTodo } from '../redux/actions';
+import { InputTextDiv } from './ui-kit/InputTextDiv'
 
 const TodoForm = () => {
-
-    const [text, setText] = useState("");
-
     const dispatch = useDispatch();
 
+    const [text, setText] = useState('');
+    const onReset = () => {
+        setText('');
+    };
     const onFormSubmit = (e) => {
         e.preventDefault();
 
         dispatch(addNewTodo(text));
-
-        setText('');
-    }
-
-    const onInputChange = (e) => {
-        setText(e.target.value);
+        onReset();
     }
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
-            <input 
-            placeholder="Enter new todo..."
-            className="input_test"
-            onChange={onInputChange}
-            value={text}
+        <form
+            className="form"
+            onSubmit={onFormSubmit}
+        >
+            <InputTextDiv
+                label="Enter new todo"
+                value={text}
+                onInput={setText}
             />
         </form>
     )

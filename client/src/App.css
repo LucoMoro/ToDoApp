@@ -83,3 +83,48 @@ article {
 }
 
 /*** CSS da non rimuovere ***/
+.form {
+  position: relative;
+  background: #2c3e50;
+  padding: 15px;
+}
+
+.form .input {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #19f;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.form .input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -10px;
+  margin-left: 20px;
+  border-left: 1px solid #19f;
+  border-right: 1px solid #19f;
+  font-size: 13px;
+  line-height: 1.15em;
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #2c3e50;
+  transition: .1s;
+}
+.form .input.focus label {
+  background: #19f;
+}
+
+.form .input [type='text'] {
+  margin: 0;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  color: inherit;
+  padding: 15px 10px 13px 10px;
+  font-size: 14px;
+  outline: 0;
+}
