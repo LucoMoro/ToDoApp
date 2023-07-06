@@ -5,13 +5,10 @@ import { ALL_TODOS, DONE_TODOS, ACTIVE_TODOS } from "../redux/actions/type";
 
 import { useDispatch, useSelector } from "react-redux";
 
-// component
-import Todo from './Todo';
-import Tabs from "./Tabs"; //lines: 24 - 26 
+import Todo from "../components/Todo";
 
-
-export const Todos = () => {
-
+export default function Done() {
+    
     const dispatch = useDispatch();
 
     const todos = useSelector(state => state.todos);
@@ -22,13 +19,7 @@ export const Todos = () => {
     }, [])
 
     const getTodos = () => {
-        if (currentTab === ALL_TODOS) {
-            return todos;
-        } else if (currentTab === ACTIVE_TODOS) {
-            return todos.filter(todo => !todo.done)
-        } else if (currentTab === DONE_TODOS) {
-            return todos.filter(todo => todo.done)
-        }
+        return todos.filter(todo => todo.done)
     }
 
     const removeDoneTodos = () => {
@@ -42,8 +33,6 @@ export const Todos = () => {
     return (
         <article>
             <div className="tab-container">
-                <Tabs currentTab={currentTab}/>
-
                 {
                     todos.some(todo => todo.done) ? (
                         <button
@@ -66,5 +55,3 @@ export const Todos = () => {
         </article>
     )
 }
-
-export default Todos;

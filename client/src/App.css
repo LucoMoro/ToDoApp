@@ -1,8 +1,14 @@
+:root {
+  --blue: #19f;
+  --white: #ffffff;
+  --black: #333;
+}
+
 /* Inizio CSS da rimuovere*/
 
 body{
-  width: 50%;
-  margin: 0 auto;
+  /*width: 50%;*/
+  margin: 0;
 }
 
 header {
@@ -93,7 +99,7 @@ article {
   position: relative;
   width: 100%;
   padding: 0;
-  border: 1px solid #19f;
+  border: 1px solid var(--blue);
   border-radius: 5px;
   color: #fff;
 }
@@ -104,8 +110,8 @@ article {
   left: 0;
   margin-top: -10px;
   margin-left: 20px;
-  border-left: 1px solid #19f;
-  border-right: 1px solid #19f;
+  border-left: 1px solid var(--blue);
+  border-right: 1px solid var(--blue);
   font-size: 13px;
   line-height: 1.15em;
   height: 20px;
@@ -115,7 +121,7 @@ article {
   transition: .1s;
 }
 .form .input.focus label {
-  background: #19f;
+  background: var(--blue);
 }
 
 .form .input [type='text'] {
@@ -127,4 +133,51 @@ article {
   padding: 15px 10px 13px 10px;
   font-size: 14px;
   outline: 0;
+}
+
+.body-container{
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.tab-container {
+  text-align: center;
+}
+
+.nav{
+  background-color: var(--black);
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-title {
+  font-size: 2rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  padding: .25em;
+}
+
+.nav li.active {
+  color: var(--blue);
+}
+
+.nav li:hover {
+  color: var(--blue);
 }
