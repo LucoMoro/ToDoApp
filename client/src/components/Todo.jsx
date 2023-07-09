@@ -35,7 +35,7 @@ const Todo = ({ todo }) => {
             onClick={toggleTodoDone}
             style={{
                 textDecoration: todo.done ? 'line-through' : '',
-                color: todo.done ? '#bdc3c7' : '#34495e'
+                color: todo.done ? '#111' : ''
             }}
         >
             <span style={{ display: editing ? 'none' : '' }}>
@@ -59,7 +59,7 @@ const Todo = ({ todo }) => {
                 />
             </form>
             <span className="icon"
-                style={{ color: todo.done ? '#008F39' : '#FFFFFF' }}
+                style={{ color: todo.done ? '#008F39' : '#000' }}
             >
                 <i class="fas fa-check-circle"></i>
             </span>
@@ -90,7 +90,7 @@ const TodoIcon = ({ todoTextLower }) => {
     ) {
         return <i class="fas fa-code-branch" />;
     } else {
-        return <i />;
+        return <i/>;
     }
 }
 
