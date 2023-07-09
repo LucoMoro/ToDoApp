@@ -1,10 +1,10 @@
 export default function Navbar() {
     return <nav className="nav">
-        <a href="/" className="site-title">SiteName</a>
+        <a href="/" className="site-title">TODO APP</a>
         <ul>
-            <CustomLink href="/about">About</CustomLink>
-            <CustomLink href="/doing">Doing</CustomLink>
-            <CustomLink href="/done">Done</CustomLink>
+            <CustomLink href="/about">ABOUT</CustomLink>
+            <CustomLink href="/doing">DOING</CustomLink>
+            <CustomLink href="/done">DONE</CustomLink>
         </ul>
     </nav>
 }

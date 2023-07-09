@@ -8,9 +8,11 @@ const Todo = ({ todo }) => {
 
     const [editing, setEditing] = useState(false);
     const [text, setText] = useState(todo.data);
+    
     useEffect(() => {
         setText(todo.data);
     }, [todo.data]);
+
     const todoTextLower = useMemo(() => todo.data.toLowerCase(), [todo.data]);
     const goal = todo.data.split(':');
 
